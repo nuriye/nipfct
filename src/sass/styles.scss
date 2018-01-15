@@ -1,0 +1,133 @@
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import './variables';
+@import './mixins';
+
+
+body {
+    background-image: url(../imgs/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    //background-color: $darkviolet;
+    color: #ffffff;
+    font-family: $primaryfont;
+    min-height: 100vh;
+}
+
+
+#main {
+    padding-top: 20px;
+}
+
+h1 {
+    color: #ffffff;
+    //font-family: $secondfont;
+    font-family: 'Paytone One', sans-serif;
+    text-align: center;
+    font-weight: inital;
+    margin-bottom: 40px;
+
+}
+
+h2 {
+    font-family: 'Paytone One', sans-serif;
+}
+
+h4 {
+    text-align: center;
+}
+
+
+a {
+
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ccb5e0;
+}
+
+a:focus, a:active {
+    color: #ccb5e0;
+}
+
+a:visited {
+    color: #ffffff;
+}
+
+.center {
+    text-align: center;
+}
+
+.iconn {
+    color: #ffffff;
+    font-size: 30pt;
+}
+
+#navi {
+
+    background-color: #160c1e;
+    text-align: right;
+    //display: none;
+    //position: absolute;
+
+    .icon {
+        color: #ffffff;
+        font-size: 90pt;
+        z-index: 999;
+    }
+
+    #welcome-user {
+        text-align: left;
+        line-height: 70px;
+    }
+
+    a.glyphicon {
+        color: #ffffff;
+        font-size: 20pt;
+        padding: 10px;
+        margin: 10px;
+        text-decoration: none;
+    }
+
+    a.glyphicon:hover, a.glyphicon:focus, a.glyphicon:active  {
+        color: #51f7d3; 
+        text-decoration: none;
+    }
+
+
+ }
+
+ .fadeIn {
+    animation: fadeIn 1s linear;
+ }
+ .fadeOut {
+    animation: fadeOut 1s linear;
+ }
+
+.login-outer {
+    margin-top: 20vh;
+}
+
+ #login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 20px;
+
+
+    .btn-login {
+        border-radius: 50px;
+        color: $darkviolet;
+        font-weight: 700;
+    }
+
+    .btn-login:hover {
+        font-weight: 700;
+        color: #51f7d3;
+    }
+
+   
+ }
+
