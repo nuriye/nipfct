@@ -1,7 +1,12 @@
 
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Paytone+One');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 @import './variables';
 @import './mixins';
+
+
 
 
 body {
@@ -59,10 +64,6 @@ a:visited {
     text-align: center;
 }
 
-.iconn {
-    color: #ffffff;
-    font-size: 30pt;
-}
 
 #navi {
 
@@ -73,8 +74,7 @@ a:visited {
 
     .icon {
         color: #ffffff;
-        font-size: 90pt;
-        z-index: 999;
+        font-size: 30pt;
     }
 
     #welcome-user {
@@ -82,15 +82,16 @@ a:visited {
         line-height: 70px;
     }
 
-    a.glyphicon {
+    a.icon {
         color: #ffffff;
-        font-size: 20pt;
+        font-size: 25pt;
         padding: 10px;
         margin: 10px;
         text-decoration: none;
+        cursor: pointer;
     }
 
-    a.glyphicon:hover, a.glyphicon:focus, a.glyphicon:active  {
+    a.icon:hover, a.icon:focus, a.icon:active  {
         color: #51f7d3; 
         text-decoration: none;
     }
