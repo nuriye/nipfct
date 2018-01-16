@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FormsModule } from '@angular/forms';
 //import { AuthModule } from './core/auth.module';
+import { AuthService } from './core/auth.service';
 
 
 import { environment } from './../environments/environment';
@@ -18,7 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './core/auth.guard';
+//import { AuthGuard } from './core/auth.guard';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -27,7 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -54,8 +55,9 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthGuard } from '../core/auth.guard';
+//import { AuthGuard } from '../core/auth.guard';
+import { CanActivate } from "@angular/router";
+
 
 @Component({
   selector: 'app-home',
