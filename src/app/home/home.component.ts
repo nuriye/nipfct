@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { AuthGuard } from '../core/auth.guard';
 import { CanActivate } from "@angular/router";
+import {AuthService} from '../core/auth.service';
 
 
 @Component({
@@ -10,9 +11,13 @@ import { CanActivate } from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authService.signOut();
   }
 
 }

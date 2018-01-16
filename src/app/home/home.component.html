@@ -6,7 +6,19 @@
        
       <h2>Home</h2>
 
-    
+      <div *ngIf="authService.currentUser">
+          <h5 class="text-primary">User Information</h5>
+          <h4>
+            <strong>UID:</strong> {{ authService.currentUserId }}
+          </h4>
+          <h4>
+            <strong>Email:</strong> {{ authService.currentUserEmail }}
+          </h4>
+          <h4>
+              <strong>Username:</strong> {{ authService.currentUsername }}
+            </h4>
+          <button class="button" (click)="logout()">Logout</button>
+        </div>
 
       </div>
     </div>
