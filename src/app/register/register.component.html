@@ -1,37 +1,41 @@
-
-
-
 <div class="container">
     <div class="row">
       <div class="col-12" id="main">
+       
           <div class="login-outer">
               <h1>Nobody is perfect</h1>
               
-                      <div class="col align-self-center" id="login-container">
-                          <h2>Registrieren</h2>
-              
-                                  <div class="form-group">
-                                      <label for="email">Email Addresse:</label>
-                                      <input type="email" class="form-control" id="email" ng-model="email.text" required>
-                                  </div>
+          <div class="col align-self-center register-container start-container">
+                <h2>Register</h2>
+     
+<form (ngSubmit)="onSignUp()">
 
-                                  <div class="form-group">
-                                          <label for="username">Username:</label>
-                                          <input type="text" class="form-control" id="username" ng-model="username.text" required>
-                                      </div>
-                                
-                                  <div class="form-group">
-                                      <label for="pwd">Passwort:</label>
-                                      <input type="password" class="form-control" id="pwd" required>
-                                  </div>
-                              
-              
-              
-                              <button class="btn btn-login" id="btnLogin" ng-click="goToLogin()">Login</button>
-                              <button class="btn btn-login" id="btnRegister" ng-click="registerMP()">Registrieren</button>
-                      </div>
+        <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="username">
+            </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Addresse:</label>
+                            <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="password">Passwort:</label>
+                            <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
+                        </div>
+                    
+    
+    
+                    <button class="btn btn-login" id="btnRegister">Registrieren</button>
+                    <button routerLink="/" class="btn btn-login" id="btnLogin">Login</button>
+</form>
+</div>
+
+
               
               </div>
-  </div>
-</div>
               
+      </div>
+    </div>
+  </div>

@@ -5,9 +5,9 @@
           <div class="login-outer">
               <h1>Nobody is perfect</h1>
               
-                      <div class="col align-self-center" id="login-container">
+                      <div class="col align-self-center login-container start-container">
                           <h2>Login</h2>
-       <!--        
+             
 <form (ngSubmit)="onLoginEmail()">
                                   <div class="form-group">
                                       <label for="email">Email Addresse:</label>
@@ -22,36 +22,13 @@
               
               
                               <button class="btn btn-login" id="btnLogin">Login</button>
+                              <button routerLink="/register" class="btn btn-login" id="btnRegister">Registrieren</button>
 
-</form>-->
+</form>
           </div>
 
 
-          <div class="col align-self-center" id="login-container">
-                <h2>Register</h2>
-     
-<form (ngSubmit)="onSignUp()">
-
-        <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="username">
-            </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Addresse:</label>
-                            <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
-                        </div>
-                       
-                        <div class="form-group">
-                            <label for="password">Passwort:</label>
-                            <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
-                        </div>
-                    
-    
-    
-                    <button class="btn btn-login" id="btnRegister">Registrieren</button>
-</form>
-</div>
+        
 
 
               
