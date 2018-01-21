@@ -9,6 +9,8 @@ import {AuthService} from '../core/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+
 export class LoginComponent implements OnInit {
 
   email = '';

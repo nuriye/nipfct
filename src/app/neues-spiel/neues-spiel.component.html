@@ -7,7 +7,40 @@
       <h2>Neues Spiel</h2>
       <h3>Füge Spieler hinzu</h3>
 
-      <ul class="list-group gamer-list">
+<!--
+      <section class="main" *ngIf="todos.length > 0">
+            <ul class="todo-list" dnd-sortable-container [sortableData]="todos">
+              <li *ngFor="let todo of todos; let i = index" class="todo-item" [class.completed]="todo.complete" 
+              dnd-sortable [sortableIndex]="i" [dragEnabled]="true" [dragData]="todo"
+              dnd-droppable (onDropSuccess)="onMove($event, i)">
+                <div class="view">
+                  <span class="handle" dnd-sortable-handle>=</span>
+                  <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+                  <label>{{todo.title}}</label>
+                  <button class="destroy" (click)="removeTodo(todo)"></button>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+
+      
+
+      <button routerLink="/seating-order" class="btn btn-game"><fa name="arrow-circle-right"></fa>Weiter</button>
+
+
+
+       
+      
+  </div>
+  </div>
+  </div>
+
+
+-->
+
+<!--
+          <ul class="list-group gamer-list">
           <li class="list-group-item agamer">
               <div class="material-switch">
                   <input id="someSwitchOptionPrimary1" name="someSwitchOption001" type="checkbox"/>
@@ -32,21 +65,4 @@
               Theresa
           </li>
      </ul>
-
-
-      
-
-      <button routerLink="/seating-order" class="btn btn-game"><fa name="arrow-circle-right"></fa>Weiter</button>
-
-
-
-       
-      
-  </div>
-  </div>
-  </div>
-
-
-
-
-
+    -->

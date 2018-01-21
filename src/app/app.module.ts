@@ -6,7 +6,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule } from '@angular/forms';
 //import { AuthModule } from './core/auth.module';
 import { AuthService } from './core/auth.service';
-
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 
 import { environment } from './../environments/environment';
 
@@ -24,6 +24,9 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NeuesSpielComponent } from './neues-spiel/neues-spiel.component';
 import { SeatingOrderComponent } from './seating-order/seating-order.component';
+
+
+
 
 
 
@@ -52,7 +55,7 @@ const appRoutes: Routes = [
     RegisterComponent,
     PageNotFoundComponent,
     NeuesSpielComponent,
-    SeatingOrderComponent
+    SeatingOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,9 +64,14 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
+
+
+
+
+
 export class AppModule { }

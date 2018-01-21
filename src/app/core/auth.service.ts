@@ -5,21 +5,22 @@ import { AngularFireAuth } from 'angularfire2/auth';
 /*import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';*/
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
 
-/*
-interface User {
+export class User {
   uid: string;
-  email: string;
-  photoURL?: string;
-  displayName?: string;
-  favoriteColor?: string;
-}*/
+  username: string = "";
+  constructor(auth) {
+    this.uid = auth.uid
+  }
+}
+
 @Injectable()
 export class AuthService {
 
 
   authState: any = null;
-  
+  currentUser: User;
   
   //user: Observable<User>;
   /*
@@ -38,13 +39,28 @@ export class AuthService {
   }
   */
   
-
+/*
   constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth
     });
   }
+  */
 
+  constructor(private afAuth: AngularFireAuth,
+    private db: AngularFireDatabase, private router: Router) {
+    this.afAuth.authState.switchMap(auth => {
+        if (auth) {
+          this.currentUser = new User(auth)
+          return this.db.object(`/users/${auth.uid}`)
+        } else return [];
+      })
+      .subscribe(user => {
+          this.currentUser['username'] = user.username
+      })
+   }
+
+/*
   get currentUserId(): string {
     return (this.authState !== null) ? this.authState.uid : ''
   }
@@ -68,15 +84,16 @@ export class AuthService {
       return false
     }
   }
+  */
 
   signUpWithEmail(email: string, password: string, username: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
-       
         user.updateProfile({
           displayName : username
       });
       this.authState = user
+      this.db.object(`/users/${this.currentUser.uid}`).update({"username": username})
       this.isLoggedIn()  
       })
       .catch(error => {
@@ -114,6 +131,8 @@ export class AuthService {
       }
     });
   }
+
+
 
 
   

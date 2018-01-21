@@ -12,4 +12,9 @@ export class SeatingOrderComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
+
+  
+
 }
