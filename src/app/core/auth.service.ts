@@ -60,6 +60,10 @@ export class AuthService {
       })
    }
 
+   get currentUsername(): string {
+    return this.authState['displayName']
+  }
+
 /*
   get currentUserId(): string {
     return (this.authState !== null) ? this.authState.uid : ''

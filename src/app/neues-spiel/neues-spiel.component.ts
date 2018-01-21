@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-neues-spiel',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NeuesSpielComponent implements OnInit {
 
+  itemCount: number = 4;
+  btnText: string = 'Add an Item'; 
+
+  constructor() { }
+
 
   ngOnInit() {
+
   }
 
 
@@ -32,6 +39,16 @@ listAllUsers(nextPageToken) {
   // Start listing users from the beginning, 1000 at a time.
   listAllUsers();
 */
+
+
+
+  listAllUsers(){
+    var mydata = firebase.database().ref().child('users/');
+    mydata.on('value', snap => console.log(snap.val()));
+  }
+
+
+
 
 
 }
