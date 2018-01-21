@@ -7,57 +7,36 @@
       <h2>Home</h2>
 
       <h3>Meine Spiele</h3>
-<!--
-      <div class="game-div row">
-        <div class="game-div-date col-sm-12">
-          31.10.2017
-        </div>
-        <div class="game-div-clock col-sm-12">
-          20:00
-        </div>
-        <div class="game-div-status col-sm-12">
-          
-        </div>
-      </div> -->
 
       <div class="game-div row">
-        <div class="col-sm-10">
-          <div class="row">
-            <div class="col-sm-12 game-div-date">
-              31.10.2017
-            </div>
+        <div class="col-10">
+          <div class="row game-div-details">
+              <span class="game-div-date">31.10.2017</span>
+              <span class="game-div-clock">13:00</span>
           </div>
-          <div class="row">
-            <div class="col-sm-12 game-div-clock">
-              13:00
-            </div>
-          </div>
+          <div class="row game-div-members">
+            Mitspieler
+        </div>
         </div>
 
-        <div class="col-sm-2 game-div-status">
-        OFF
+        <div class="col-2 game-div-status status-active">
+ 
         </div>
 
       </div> 
-
-
-
-
-<!--
-      <div *ngIf="authService.currentUser">
-          <h5 class="text-primary">User Information</h5>
-          <h4>
-            <strong>UID:</strong> {{ authService.currentUserId }}
-          </h4>
-          <h4>
-            <strong>Email:</strong> {{ authService.currentUserEmail }}
-          </h4>
-          <h4>
-              <strong>Username:</strong> {{ authService.currentUsername }}
-            </h4>
-          <button class="button" (click)="logout()">Logout</button>
+<a routerLink="/neues-spiel" class="add-game-link">
+      <div class="game-div add-game row">
+        <div class="col-10">
+          <span class="add-game-text">Starte ein neues Spiel!</span>
         </div>
-      -->
+
+        <div class="col-2 add-game-plus">
+          <fa name="plus-circle"></fa>
+        </div>
+
+      </div> 
+</a>
+
 
 
 

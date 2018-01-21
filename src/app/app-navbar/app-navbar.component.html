@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="row" id="navi">
-    <div class="col-6"  *ngIf="authService.currentUser" id="display-username">     
+    <div class="col-3 col-md-2"  *ngIf="authService.currentUser" id="display-username">     
 <div class="welcome-user">Hallo, <b>{{ authService.currentUsername }}</b></div>
 </div>
-<div class="col-6 nav-icons" >
+<div class="col-9 col-md-10 nav-icons" >
 
         <a routerLink="/home" class="icon"><fa name="home"></fa></a>
         <a routerLink="/settings" class="icon"><fa name="cog"></fa></a>
