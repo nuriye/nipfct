@@ -3,6 +3,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {Router} from '@angular/router';
 import {AuthService} from '../core/auth.service';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -11,14 +14,39 @@ import {AuthService} from '../core/auth.service';
 })
 export class AppNavbarComponent implements OnInit {
 
-  constructor(public authService: AuthService, private router: Router) {}
+
+  displayUsername: Observable<any>;
+
+
+  constructor(public authService: AuthService, 
+              private afAuth: AngularFireAuth,
+              private db: AngularFireDatabase,
+              private router: Router) {}
 
   ngOnInit() {
-  }
+    this.afAuth.auth.onAuthStateChanged(auth => {
+      if (auth) {
+        console.log(auth);
+      } else {
+        console.log('User logged out');
+      }
+    });
+
+     }
 
   logout() {
     this.authService.signOut();
   }
+
+
+  /*displayUsername = this.db.list('users', ref => ref.orderByChild('userid').equalTo(this.userId)).snapshotChanges().map(changes => {
+    return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+ });*/
+
+
+
+
+
 
   
 

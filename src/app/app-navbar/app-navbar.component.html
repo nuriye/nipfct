@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row" id="navi">
     <div class="col-3 col-md-2"  *ngIf="authService.currentUser" id="display-username">     
-<div class="welcome-user">Hallo, <b>{{ authService.currentUsername }}</b></div>
+<div class="welcome-user">Hallo, <b>{{ authService.getUser }}</b></div>
 </div>
 <div class="col-9 col-md-10 nav-icons" >
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+/*import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';*/
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
@@ -20,11 +20,9 @@ export class AuthService {
 
 
   authState: any = null;
-  currentUser: Observable<User>;
-  //currentUser: User;
+  currentUser: User;
   
   //user: Observable<User>;
-  //currentUser: Observable<User>;
   /*
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
@@ -51,20 +49,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase, private router: Router) {
-
-      this.currentUser = this.afAuth.authState
-      .switchMap(user => {
-        if (user) {
-          // logged in, get custom user from Firestore
-          return this.currentUser.doc<User>(`users/${user.uid}`).valueChanges()
-        } else {
-          // logged out, null
-          return Observable.of(null)
-        }
-      })
-
-
-    /*this.afAuth.authState.switchMap(auth => {
+    this.afAuth.authState.switchMap(auth => {
         if (auth) {
           this.currentUser = new User(auth)
           return this.db.object(`/users/${auth.uid}`)
@@ -72,12 +57,13 @@ export class AuthService {
       })
       .subscribe(user => {
           this.currentUser['username'] = user.username
-      })*/
+      })
    }
 
-   get currentUsername(): string {
-    return this.authState['displayName']
-  }
+
+   get getUser(){
+    return this.afAuth.auth.currentUser.displayName;
+}
 
 /*
   get currentUserId(): string {
