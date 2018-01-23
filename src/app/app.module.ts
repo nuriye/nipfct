@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { AuthModule } from './core/auth.module';
 import { AuthService } from './core/auth.service';
 import { AngularFireDatabase } from 'angularfire2/database-deprecated';
@@ -24,8 +24,9 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NeuesSpielComponent } from './neues-spiel/neues-spiel.component';
 import { SeatingOrderComponent } from './seating-order/seating-order.component';
-
-
+import { UsersInGame } from './users-in-game';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { ChartsModule } from "ng2-charts-x";
 
 
 
@@ -65,8 +66,12 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule, 
+    MatCheckboxModule,
+    ChartsModule
   ],
-  providers: [AuthService, AngularFireDatabase],
+  providers: [AuthService, AngularFireDatabase, UsersInGame],
   bootstrap: [AppComponent]
 })
 

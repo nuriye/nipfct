@@ -15,7 +15,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class AppNavbarComponent implements OnInit {
 
 
-  displayUsername: Observable<any>;
+  //displayUsername: Observable<any>;
 
 
   constructor(public authService: AuthService, 

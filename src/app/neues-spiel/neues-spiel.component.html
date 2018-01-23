@@ -7,10 +7,53 @@
       <h2>Neues Spiel</h2>
       <h3>Füge Spieler hinzu</h3>
 
-      <input type="submit" class="btn" [value]="btnText">
+<form (ngSubmit)="addGamers(a)">
+      <ul class="list-group gamer-list">
+            <li class="list-group-item agamer" *ngFor="let user of allUsers$ | async as users; index as i">
+                <div class="material-switch">
+                    <input id="switch{{user.username}}" value="{{user.username}}" name="switchUsername" #auser (click)="isChecked(auser.value)" type="checkbox"/>
+                    <label for="switch{{user.username}}" class="switch{{user.key}}"></label>
+                </div>
+                {{user.username}} {{ i }}
+            </li>
+    </ul>
+    
 
+
+  
+
+    
+    <button class="btn btn-game"><fa name="arrow-circle-right"></fa> Füge Spieler hinzu</button>
+</form>
+<!--
+
+    <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
+    <form (ngSubmit)="addGamers()">
+            <ul class="list-group gamer-list">
+                  <li class="list-group-item agamer" *ngFor="let user of allUsers | async">
+                      <div class="material-switch">
+                          <input name="switch{{user.key}}" type="checkbox" id="switch{{user.key}}"/>
+                          <label for="switch{{user.username}}" class="switch{{user.key}}"></label>
+                      </div>
+                      {{user.username}}
+                  </li>
+          </ul>
       
-
+          <button class="btn btn-game"><fa name="arrow-circle-right"></fa> Füge Spieler hinzu</button>
+      </form>
+    -->
+    <!--
+      <button class="btn btn-danger" (click)="showmetheid()"></button>
+      <div class="row columns">
+            <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+            <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+          
+            <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
+            <div id="details-container">
+                <p *ngFor="let item of items | async"><img src="../assets/images/pin.svg">               {{item.username}}</p>
+            </div>
+          </div>
+        -->
 <!--
       <section class="main" *ngIf="todos.length > 0">
             <ul class="todo-list" dnd-sortable-container [sortableData]="todos">
