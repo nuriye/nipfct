@@ -26,6 +26,8 @@ export class NeuesSpielComponent implements OnInit {
 
   myUsers = new Array();
 
+  mySet = new Set();
+
 
 
  
@@ -95,28 +97,58 @@ export class NeuesSpielComponent implements OnInit {
 
   isChecked(e) {
 
+
+
+    if(this.mySet.has(e)) {
+      console.log("item in set");
+      this.mySet.delete(e); 
+    } else {
+      this.mySet.add(e);
+    }
+
     // wenn e schon im Array ist dann rauslöschen beim klicken
-  
+  /*
     var usersArray = this.myUsers;
     //this.myUsers.push(e);
+    console.log(usersArray.length);
 
-    if (usersArray.length < 1) { //also leer
+    if(this.myUsers.length == 0) {
+      console.log("is 0");
+      this.myUsers.push(e);
+    } else {
+      console.log("is not 0");
+      if (!this.myUsers.includes(e)) {
+        this.myUsers.push(e);
+      }
+*/
+
+     /* for (var i= 0; i < this.myUsers.length; i++) {
+        if (this.myUsers[i] == e) {
+           console.log("is in array");
+          // this.myUsers.splice(i, 1);
+          } else {
+           this.myUsers.push(e);
+          }
+      }
+  }*/
+
+   /* if (usersArray.length < 1) { //also leer
       usersArray.push(e);
       console.log("jupp");
     } else {
       for (var i= 0; i < this.myUsers.length; i++) {
        if (usersArray[i] == e) {
-          console.log("ist im array")
+          console.log("ist im array");
          } else {
           usersArray.push(e);
          }
        }
    
-      
-    }
+   
+    }   */
 
    
-    console.log(this.myUsers);
+    console.log(this.mySet);
 
     //console.log(e);
     //this.myUsers.push(e);
