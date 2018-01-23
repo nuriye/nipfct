@@ -25,8 +25,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NeuesSpielComponent } from './neues-spiel/neues-spiel.component';
 import { SeatingOrderComponent } from './seating-order/seating-order.component';
 import { UsersInGame } from './users-in-game';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import { ChartsModule } from "ng2-charts-x";
 
 
 
@@ -67,9 +65,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule, 
-    MatCheckboxModule,
-    ChartsModule
   ],
   providers: [AuthService, AngularFireDatabase, UsersInGame],
   bootstrap: [AppComponent]

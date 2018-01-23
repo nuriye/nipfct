@@ -8,7 +8,6 @@ import { UsersInGame } from '../users-in-game';
 import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { AuthService } from '../core/auth.service';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
-import { ChartsModule } from "ng2-charts-x";
 
 @Component({
   selector: 'app-neues-spiel',
@@ -34,7 +33,7 @@ export class NeuesSpielComponent implements OnInit {
   //allUsers: FirebaseListObservable<any[]>;
 
   userRef: AngularFireList<any>;
-  allUsers$: Observable<any[]>;
+  allUsers: Observable<any[]>;
 
   //allUsers: UsersInGame[] = [];
 
@@ -42,7 +41,7 @@ export class NeuesSpielComponent implements OnInit {
     private db: AngularFireDatabase, public authService: AuthService, private router: Router) {
 
       this.userRef = db.list('/users');
-      this.allUsers$ = this.userRef.snapshotChanges().map(changes => {
+      this.allUsers = this.userRef.snapshotChanges().map(changes => {
           return changes.map(c => ({ key: c.payload.key, ...c.payload.val() 
       }));
 
@@ -92,13 +91,19 @@ export class NeuesSpielComponent implements OnInit {
 
   ngOnInit() {
 
+   
+  }
 
+  addUsersToGame() {
+     
+
+       firebase.database().ref('gameturn/users').set({
+        test: "name",
+        nocheintest: "tes2",
+      });
   }
 
   isChecked(e) {
-
-
-
     if(this.mySet.has(e)) {
       console.log("item in set");
       this.mySet.delete(e); 

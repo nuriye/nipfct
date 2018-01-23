@@ -7,14 +7,14 @@
       <h2>Neues Spiel</h2>
       <h3>Füge Spieler hinzu</h3>
 
-<form (ngSubmit)="addGamers(a)">
+
       <ul class="list-group gamer-list">
-            <li class="list-group-item agamer" *ngFor="let user of allUsers$ | async as users; index as i">
+            <li class="list-group-item agamer" *ngFor="let user of allUsers | async">
                 <div class="material-switch">
-                    <input id="switch{{user.username}}" value="{{user.username}}" name="switchUsername" #auser (click)="isChecked(auser.value)" type="checkbox"/>
+                    <input id="switch{{user.username}}" value="{{user.key}}" name="switchUsername" #auser (click)="isChecked(auser.value)" type="checkbox"/>
                     <label for="switch{{user.username}}" class="switch{{user.key}}"></label>
                 </div>
-                {{user.username}} {{ i }}
+                {{user.username}}
             </li>
     </ul>
     
@@ -23,8 +23,8 @@
   
 
     
-    <button class="btn btn-game"><fa name="arrow-circle-right"></fa> Füge Spieler hinzu</button>
-</form>
+    <button (click)="addUsersToGame()" class="btn btn-game"><fa name="arrow-circle-right"></fa> Füge Spieler hinzu</button>
+
 <!--
 
     <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
