@@ -61,7 +61,7 @@ export class AuthService {
    }
 
 
-   get getUser(){
+   get getUserName(){
     return this.afAuth.auth.currentUser.displayName;
 }
 
