@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.error = { name: '', message: '' };
   }
 
-
+/*
   onSignUp(): void {
     this.clearErrorMessage()
  
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/'])
         })
     }
-  }
+  }*/
 
 
   onLoginEmail(): void {
