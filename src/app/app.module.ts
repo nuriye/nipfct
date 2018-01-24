@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AngularFireDatabase, UsersInGame],
   bootstrap: [AppComponent]

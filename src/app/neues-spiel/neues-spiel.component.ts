@@ -9,6 +9,7 @@ import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { AuthService } from '../core/auth.service';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-neues-spiel',
   templateUrl: './neues-spiel.component.html',
@@ -96,11 +97,11 @@ export class NeuesSpielComponent implements OnInit {
 
   addUsersToGame() {
      
-
-       firebase.database().ref('gameturn/users').set({
+      //getUsersFromList(this.mySet);
+       /*firebase.database().ref('gameturn/users').set({
         test: "name",
         nocheintest: "tes2",
-      });
+      });*/
   }
 
   isChecked(e) {
