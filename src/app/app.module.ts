@@ -13,8 +13,6 @@ import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
 import { HomeComponent } from './home/home.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginComponent } from './login/login.component';
@@ -60,7 +58,6 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
   ],
