@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { AuthService } from '../core/auth.service';
-import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
+//import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-neues-spiel',

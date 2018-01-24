@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     RegisterComponent,
     PageNotFoundComponent,
     NeuesSpielComponent,
-    SeatingOrderComponent,
+    SeatingOrderComponent
   ],
   imports: [
     BrowserModule,
