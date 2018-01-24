@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-seating-order',
-  templateUrl: './seating-order.component.html',
+  template: `
+{{childMessage}}
+  `,
+  //templateUrl: './seating-order.component.html',
   styleUrls: ['./seating-order.component.scss']
 })
 export class SeatingOrderComponent implements OnInit {
+
+  @Input() childMessage: string;
 
   constructor() { }
 

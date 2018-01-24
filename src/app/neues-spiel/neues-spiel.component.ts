@@ -4,21 +4,24 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 //import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { Router } from '@angular/router';
-import { UsersInGame } from '../users-in-game';
 import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { AuthService } from '../core/auth.service';
 import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
-import { ChartsModule } from "ng2-charts-x";
 
 @Component({
   selector: 'app-neues-spiel',
-  templateUrl: './neues-spiel.component.html',
+  //templateUrl: './neues-spiel.component.html',
+  template: `
+  <app-seating-order [childMessage]="parentMessage"></app-seating-order>
+  `,
   styleUrls: ['./neues-spiel.component.scss']
 })
 
 
 
 export class NeuesSpielComponent implements OnInit {
+
+  parentMessage = "message from parent";
 
   isSelected = '';
 
@@ -92,12 +95,9 @@ export class NeuesSpielComponent implements OnInit {
 
   ngOnInit() {
 
-
   }
 
   isChecked(e) {
-
-
 
     if(this.mySet.has(e)) {
       console.log("item in set");
@@ -105,47 +105,6 @@ export class NeuesSpielComponent implements OnInit {
     } else {
       this.mySet.add(e);
     }
-
-    // wenn e schon im Array ist dann rauslöschen beim klicken
-  /*
-    var usersArray = this.myUsers;
-    //this.myUsers.push(e);
-    console.log(usersArray.length);
-
-    if(this.myUsers.length == 0) {
-      console.log("is 0");
-      this.myUsers.push(e);
-    } else {
-      console.log("is not 0");
-      if (!this.myUsers.includes(e)) {
-        this.myUsers.push(e);
-      }
-*/
-
-     /* for (var i= 0; i < this.myUsers.length; i++) {
-        if (this.myUsers[i] == e) {
-           console.log("is in array");
-          // this.myUsers.splice(i, 1);
-          } else {
-           this.myUsers.push(e);
-          }
-      }
-  }*/
-
-   /* if (usersArray.length < 1) { //also leer
-      usersArray.push(e);
-      console.log("jupp");
-    } else {
-      for (var i= 0; i < this.myUsers.length; i++) {
-       if (usersArray[i] == e) {
-          console.log("ist im array");
-         } else {
-          usersArray.push(e);
-         }
-       }
-   
-   
-    }   */
 
    
     console.log(this.mySet);
@@ -177,6 +136,8 @@ export class NeuesSpielComponent implements OnInit {
         })
         */
     }
+
+
   }
 
 
@@ -184,7 +145,6 @@ export class NeuesSpielComponent implements OnInit {
 
 
 
-}
 
 
 
