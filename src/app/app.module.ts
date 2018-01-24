@@ -24,6 +24,7 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NeuesSpielComponent } from './neues-spiel/neues-spiel.component';
 import { SeatingOrderComponent } from './seating-order/seating-order.component';
+import { AddAnswerComponent } from './add-answer/add-answer.component';
 
 
 
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'neues-spiel', component: NeuesSpielComponent },
   { path: 'seating-order', component: SeatingOrderComponent },
+  { path: 'add-answer', component: AddAnswerComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   
   { path: '**', component: PageNotFoundComponent }
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     PageNotFoundComponent,
     NeuesSpielComponent,
-    SeatingOrderComponent
+    SeatingOrderComponent,
+    AddAnswerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row">
+      <div class="col-12" id="main">
+            <div class="answers">
+
+              <h3>Füge eine Antwort hinzu</h3>
+              
+              <form (ngSubmit)="addAnswer()">
+
+
+                <textarea rows="4" name="answer" class="add-answer" required [(ngModel)]="answer"></textarea>
+                <button class="btn btn-login" id="btnRegister">Registrieren</button>
+            </form>
+
+
+            </div>
+      </div>
+   </div>
+</div>

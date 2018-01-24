@@ -1,4 +1,4 @@
-<!--<app-navbar></app-navbar>
+<app-navbar></app-navbar>
 
 <div class="container">
     <div class="row">
@@ -21,92 +21,8 @@
 
 
     <button class="btn btn-game"><fa name="arrow-circle-right"></fa> Füge Spieler hinzu</button>
--->
-<!--
 
-    <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
-    <form (ngSubmit)="addGamers()">
-            <ul class="list-group gamer-list">
-                  <li class="list-group-item agamer" *ngFor="let user of allUsers | async">
-                      <div class="material-switch">
-                          <input name="switch{{user.key}}" type="checkbox" id="switch{{user.key}}"/>
-                          <label for="switch{{user.username}}" class="switch{{user.key}}"></label>
-                      </div>
-                      {{user.username}}
-                  </li>
-          </ul>
-      
-          <button class="btn btn-game"><fa name="arrow-circle-right"></fa> Füge Spieler hinzu</button>
-      </form>
-    -->
-    <!--
-      <button class="btn btn-danger" (click)="showmetheid()"></button>
-      <div class="row columns">
-            <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-            <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-          
-            <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
-            <div id="details-container">
-                <p *ngFor="let item of items | async"><img src="../assets/images/pin.svg">               {{item.username}}</p>
-            </div>
-          </div>
-        -->
-<!--
-      <section class="main" *ngIf="todos.length > 0">
-            <ul class="todo-list" dnd-sortable-container [sortableData]="todos">
-              <li *ngFor="let todo of todos; let i = index" class="todo-item" [class.completed]="todo.complete" 
-              dnd-sortable [sortableIndex]="i" [dragEnabled]="true" [dragData]="todo"
-              dnd-droppable (onDropSuccess)="onMove($event, i)">
-                <div class="view">
-                  <span class="handle" dnd-sortable-handle>=</span>
-                  <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
-                  <label>{{todo.title}}</label>
-                  <button class="destroy" (click)="removeTodo(todo)"></button>
-                </div>
-              </li>
-            </ul>
-          </section>
+</div>
+</div>
+</div>
 
-
-      
-
-      <button routerLink="/seating-order" class="btn btn-game"><fa name="arrow-circle-right"></fa>Weiter</button>
-
-
-
-       
-      
-  </div>
-  </div>
-  </div>
-
-
--->
-
-<!--
-          <ul class="list-group gamer-list">
-          <li class="list-group-item agamer">
-              <div class="material-switch">
-                  <input id="someSwitchOptionPrimary1" name="someSwitchOption001" type="checkbox"/>
-                  <label for="someSwitchOptionPrimary1" class="label-primary"></label>
-              </div>
-              Julia
-          </li>
-
-          <li class="list-group-item agamer">
-              <div class="material-switch">
-                  <input id="someSwitchOptionPrimary2" name="someSwitchOption002" type="checkbox"/>
-                  <label for="someSwitchOptionPrimary2" class="label-primary"></label>
-              </div>
-              Kathrin
-          </li>
-
-          <li class="list-group-item agamer">
-              <div class="material-switch">
-                  <input id="someSwitchOptionPrimary3" name="someSwitchOption002" type="checkbox"/>
-                  <label for="someSwitchOptionPrimary3" class="label-primary"></label>
-              </div>
-              Theresa
-          </li>
-     </ul>
-    -->

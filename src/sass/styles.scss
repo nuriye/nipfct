@@ -314,6 +314,23 @@ a:visited {
 }
 
 
+.answers {
+    .add-answer {
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.3);
+        height: auto;
+        font-size: 1.4em;
+        border: 3px solid #ffffff;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+}
+
+
 .material-switch > input[type="checkbox"] {
     display: none;   
 }

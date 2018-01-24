@@ -2,10 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-seating-order',
-  template: `
-<div>{{childMessage}}</div>
-  `,
-  //templateUrl: './seating-order.component.html',
+  //template: `
+//<div>{{childMessage}}</div>
+ // `,
+  templateUrl: './seating-order.component.html',
   styleUrls: ['./seating-order.component.scss']
 })
 

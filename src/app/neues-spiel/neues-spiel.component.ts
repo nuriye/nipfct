@@ -10,10 +10,10 @@ import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-neues-spiel',
-  //templateUrl: './neues-spiel.component.html',
-  template: `
-  <app-seating-order [childMessage]="parentMessage"></app-seating-order>
-  `,
+  templateUrl: './neues-spiel.component.html',
+ // template: `
+  //<app-seating-order [childMessage]="parentMessage"></app-seating-order>
+  //`,
   styleUrls: ['./neues-spiel.component.scss']
 })
 
