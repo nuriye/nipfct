@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-seating-order',
-  inputs: ['childMessage'],
   template: `
 <div>{{childMessage}}</div>
   `,
@@ -13,7 +12,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class SeatingOrderComponent implements OnInit {
 
-  //@Input() childMessage: string;
+  @Input() childMessage: string;
 
   constructor() { }
 
