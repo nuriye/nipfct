@@ -30,7 +30,6 @@ h1 {
     text-align: center;
     font-weight: inital;
     margin-bottom: 40px;
-
 }
 
 h2 {
@@ -66,7 +65,7 @@ a:visited {
 
 
 #navi {
-
+    z-index: 10;
     background-color: #160c1e;
     text-align: right;
     height: 60px;
@@ -294,6 +293,73 @@ a:visited {
     }
 }
 
+.btn-delete {
+    color: $darkviolet;
+    font-weight: 700;
+    display: block;
+    background-color: transparent;
+    margin-right: 0;
+    margin-bottom: 30px;
+    margin-left: auto;
+    color: #ffffff;
+
+
+
+    &:hover {
+        font-weight: 700;
+        color: $turquoise;
+        cursor: pointer;
+    }
+}
+
+#reallyDelete {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: rgba(32, 15, 47, 0.97);
+    text-align: center;
+    z-index: 999;
+    padding: 10px;
+
+    .btn-close {
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 2em;
+        display: block;
+        margin-right: 0;
+        margin-left: auto;
+
+        &:hover {
+            cursor: pointer;
+            color: $turquoise;
+        }
+    }
+   
+
+    .text {
+        padding-top: 16vh;
+        .btn-game {
+            margin: 20px auto;
+        }
+    
+        h4 {
+            font-family: 'Paytone One', sans-serif;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 40px;
+        }
+    }
+
+  
+}
+
+
 .gamer-list {
     margin-top: 60px;
     margin-bottom: 60px;
@@ -309,9 +375,81 @@ a:visited {
     .agamer-order {
         margin-right: 15px;
     }
+}
+
+.answer-list {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    .aanswer {
+        background-color: rgba(255, 255, 255, 0.2);
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding: 0 20px;
+        height: auto;
+
+        li {
+            list-style-type: upper-latin;
+            list-style-position: inside;
+            padding: 20px;
+            font-size: 2em;
+            font-family: 'Paytone One', sans-serif;
+        }
+
+
+        .gamer-answer {
+            border-bottom: 1px solid $darkviolet;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        .gamer-username {
+            display: block;
+            font-style: italic;
+            color: $turquoise;
+            padding: 5px;
+            text-align: right;
+        }
+
+                @media only screen and (max-width: 767px) { 
+
+                    .answer-letter {
+
+                    }
+
+                    li {
+                        list-style-type: upper-latin;
+                        list-style-position: inside;
+                        padding: 0px;
+                        font-size: 1.4em;
+                        font-family: 'Paytone One', sans-serif;
+                        text-align: center;
+                    }
+            
+            
+                    .gamer-answer {
+                        border-bottom: 1px solid $darkviolet;
+                        padding: 10px;
+
+                        font-size: 1.2em;
+                    }
+                    .gamer-username {
+                        display: block;
+                        font-style: italic;
+                        color: $turquoise;
+                        padding: 4px;
+                        text-align: right;
+                    }
+                }
+        
+    }
+
+
+
 
 
 }
+
 
 
 .answers {
@@ -319,6 +457,7 @@ a:visited {
         display: block;
         width: 100%;
         margin-top: 30px;
+        margin-bottom: 30px;
         padding: 10px;
         background-color: rgba(255, 255, 255, 0.3);
         height: auto;

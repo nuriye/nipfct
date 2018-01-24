@@ -65,6 +65,10 @@ export class AuthService {
     return this.afAuth.auth.currentUser.displayName;
 }
 
+get getUserId(){
+  return this.afAuth.auth.currentUser.uid;
+}
+
 /*
   get currentUserId(): string {
     return (this.authState !== null) ? this.authState.uid : ''
