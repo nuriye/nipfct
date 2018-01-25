@@ -10,6 +10,8 @@
            
               <form (ngSubmit)="addAnswer()">
                 <textarea rows="4" name="answer" id="answer-input" class="add-answer" required [(ngModel)]="answer"></textarea>
+                <div id="answer-sent">Antwort abgesendet!</div>
+                <div id="answer-not-sent">Fehler beim Absenden der Antwort!</div>
                 <button class="btn btn-game"><fa name="arrow-circle-right"></fa>Antwort abschicken</button>
             </form>
 

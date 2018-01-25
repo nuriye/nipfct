@@ -28,7 +28,8 @@ export class AppNavbarComponent implements OnInit {
       if (auth) {
         console.log(auth);
       } else {
-        console.log('User logged out');
+        this.router.navigate(['/']);
+        console.log('User not logged in');
       }
     });
 

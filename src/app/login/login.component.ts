@@ -3,6 +3,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import {Router} from '@angular/router';
 import {AuthService} from '../core/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +21,24 @@ export class LoginComponent implements OnInit {
   error: {name: string, message: string} = {name: '', message: ''};
 
 
-  constructor(public authService: AuthService, private router: Router) {}
+ 
+  constructor(public authService: AuthService, 
+    private afAuth: AngularFireAuth,
+    private router: Router) {
+      
+    }
+
+   
+  
 
   ngOnInit() {
+    this.afAuth.auth.onAuthStateChanged(auth => {
+      if (auth) {
+        this.router.navigate(['/home']);
+      } else {
+        console.log('User logged out');
+      }
+    });
   }
 
   clearErrorMessage() {

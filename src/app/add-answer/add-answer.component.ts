@@ -55,6 +55,11 @@ export class AddAnswerComponent implements OnInit {
           answer: this.answer
         }).then(() => {
           this.answer = ''; 
+          document.getElementById("answer-not-sent").style.display="none";
+          document.getElementById("answer-sent").style.display="block";
+        }).catch(error => {
+          document.getElementById("answer-not-sent").style.display="block";
+          console.log(error);
         });
        // document.getElementById("answer-input").innerHTML="hello";
   
