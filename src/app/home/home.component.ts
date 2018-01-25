@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-//import { AuthGuard } from '../core/auth.guard';
-import { CanActivate } from "@angular/router";
 import {AuthService} from '../core/auth.service';
-
+import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
+import { FirebaseListObservable } from "angularfire2/database-deprecated";
 
 @Component({
   selector: 'app-home',
@@ -11,9 +14,70 @@ import {AuthService} from '../core/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authService: AuthService) {}
+  gamesRef: AngularFireList<any>;
+  allGames: Observable<any[]>;
+
+  playersRef: AngularFireList<any>;
+  allPlayers: Observable<any[]>;
+
+
+
+
+  constructor(private afAuth: AngularFireAuth,
+    private db: AngularFireDatabase, public authService: AuthService, private router: Router) { 
+      
+
+      this.gamesRef = db.list('/games');
+        this.allGames = this.gamesRef.snapshotChanges().map(changes => {
+            return changes.map(c => ({ key: c.payload.key, ...c.payload.val() 
+        }));
+      });
+
+/*
+this.gamesRef = db.list('/games');
+    this.allGames = this.gamesRef.snapshotChanges().map(changes => {
+        return changes.map(c => { 
+          let games;
+          //games.key= c.payload.key;
+          //games.satus = c.payload.val().status;
+          games.time = c.payload.val().time;
+
+          let players=[]
+          c.payload.val().players.forEach(player=>{
+            players.push(player);
+          })
+
+          games.players = players;
+
+          return games;
+    });
+});
+*/
+
+
+
+      //this.allUsers = db.list('/users');
+
+      //console.log(this.allGames);
+/*
+                                        var gamesRef = firebase.database().ref("games").orderByKey();
+                                        gamesRef.once("value")
+                                        .then(function(snapshot) {
+                                          snapshot.forEach(function(childSnapshot) {
+                                            var key = childSnapshot.key;
+                                            var childData = childSnapshot.val();
+                                        });
+                                      });
+*/
+
+    }
 
   ngOnInit() {
   }
+
+  hack(val) {
+    console.log;
+ // return Array.from(val);
+}
 
 }

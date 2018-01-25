@@ -26,7 +26,7 @@ export class AppNavbarComponent implements OnInit {
   ngOnInit() {
     this.afAuth.auth.onAuthStateChanged(auth => {
       if (auth) {
-        console.log(auth);
+        //console.log(auth);
       } else {
         this.router.navigate(['/']);
         console.log('User not logged in');

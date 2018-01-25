@@ -6,41 +6,11 @@
        
       <h2>Home</h2>
 
-      <h3>Meine Spiele</h3>
 
-      <div class="game-div row">
-        <div class="col-10">
-          <div class="row game-div-details">
-              <span class="game-div-date">31.10.2017</span>
-              <span class="game-div-clock">13:00</span>
-          </div>
-          <div class="row game-div-members">
-            Mitspieler
-        </div>
-        </div>
-
-        <div class="col-2 game-div-status status-active">
- 
-        </div>
-
-      </div> 
 <a routerLink="/neues-spiel" class="add-game-link">
-      <div class="game-div add-game row">
-        <div class="col-10">
-          <span class="add-game-text">Starte ein neues Spiel!</span>
-        </div>
-
-        <div class="col-2 add-game-plus">
-          <fa name="plus-circle"></fa>
-        </div>
-
-      </div> 
-</a>
-
-<a routerLink="/add-answer" class="add-game-link">
   <div class="game-div add-game row">
     <div class="col-10">
-      <span class="add-game-text">Füge eine Antwort hinzu</span>
+      <span class="add-game-text">Starte ein neues Spiel!</span>
     </div>
 
     <div class="col-2 add-game-plus">
@@ -50,6 +20,58 @@
   </div> 
 </a>
 
+
+<a routerLink="/add-answer" class="add-game-link">
+  <div class="game-div add-game row">
+  <div class="col-10">
+    <span class="add-game-text">Füge eine Antwort hinzu: SpielerIn</span>
+  </div>
+  
+  <div class="col-2 add-game-plus">
+    <fa name="plus-circle"></fa>
+  </div>
+  
+  </div> 
+  </a>
+
+  <a routerLink="/add-answer-master" class="add-game-link">
+    <div class="game-div add-game row">
+    <div class="col-10">
+      <span class="add-game-text">Füge eine Antwort hinzu: Master</span>
+    </div>
+    
+    <div class="col-2 add-game-plus">
+      <fa name="plus-circle"></fa>
+    </div>
+    
+    </div> 
+    </a>
+
+
+
+<br>
+<br>
+
+      <h2>Alle Spiele</h2>
+
+      <div class="game-div row"  *ngFor="let game of allGames | async">
+        <div class="col-10">
+          <div class="row game-div-details">
+              <span class="game-div-date">{{game.date}}</span>
+              <span class="game-div-clock">{{game.time}}</span>
+          </div>
+          <div class="row game-div-members">
+            <div *ngFor="let player of hack(game.players)">
+              <span>{{player}}</span>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-2 game-div-status status-{{game.status}}">
+ 
+        </div>
+
+      </div> 
 
 
 

@@ -9,18 +9,18 @@
 
 
       <ul class="list-group gamer-list">
-            <li class="list-group-item agamer" *ngFor="let user of allUsers$ | async as users; index as i">
+            <li class="list-group-item agamer" *ngFor="let user of allUsers | async">
                 <div class="material-switch">
-                    <input id="switch{{user.username}}" value="{{user.username}}" name="switchUsername" #auser (click)="isChecked(auser.value)" type="checkbox"/>
-                    <label for="switch{{user.username}}" class="switch{{user.key}}"></label>
+                    <input id="{{user.username}}" value="{{user.username}}" name="switchUsername" #auser (click)="isChecked(auser.value)" type="checkbox"/>
+                    <label for="{{user.username}}" class="{{user.key}}"></label>
                 </div>
-                {{user.username}} {{ i }}
+                {{user.username}}
             </li>
     </ul>
     
 
 
-    <button class="btn btn-game"><fa name="arrow-circle-right"></fa> Füge Spieler hinzu</button>
+    <button class="btn btn-game" (click)="addNewGame()"><fa name="arrow-circle-right"></fa> Starte das Spiel!</button>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12" id="main">
             <div class="answers">
-
+<h2>Hallo, MitspielerIn!</h2>
               <h3>Füge eine Antwort hinzu</h3>
 
            
@@ -16,38 +16,8 @@
             </form>
 
 
-
-            <ul class="list-group answer-list">
-              <div class="aanswer" *ngFor="let answer of allAnswers | async">
-                <div class="row">
-                  <div class="col-12 col-md-1">
-                      <div class="answer-letter"><li></li></div>
-                  </div>
-                  <div class="col-12 col-md-11">
-                      <div class="gamer-answer">{{answer.answer}}</div>
-                      <div class="gamer-username">{{answer.username}}</div>
-                  </div>
-                </div>
-              </div>
-        </ul>
-    
-        <button class="btn btn-delete" (click)="openDiv()"><fa name="close"></fa>Antworten löschen</button>
-            </div>
-      </div>
-   </div>
-</div>
-
-
-<div id="reallyDelete">
-    <button class="btn btn-close" (click)="closeDiv()"><fa name="close"></fa></button>
-    <div class="text">
-  <h4>Möchtest du wirklich alle Antworten löschen?</h4>
-  <p>Wenn du das tust, wird eine neue Runde gestartet und 
-    jemand anderer wird Master.</p>
-
-
-  <p>  Wenn ja, klicke hier</p>
-
-  <button class="btn btn-game" (click)="deleteAllAnswers()"><fa name="close"></fa>Alle Antworten löschen</button>
 </div>
 </div>
+</div>
+</div>
+
