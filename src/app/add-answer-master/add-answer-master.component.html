@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row">
+      <div class="col-12" id="main">
+            <div class="answers">
+<h2>Hallo, Master!</h2>
+<h4>Wie viele spielen mit?</h4>
+
+<div class="game-settings">
+<form (ngSubmit)="saveNumberOfPlayers()">
+<select class="agamer-number" name="numberOfPlayers" [(ngModel)]="numberOfPlayers">
+   
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+</select>
+
+<button class="btn btn-number">Anzahl festlegen</button>
+</form>
+</div>
+
+<div class="number-of-players">
+Aktuelle Anzahl der MitspielerInnen: <b id="number"></b>
+</div>
+
+
+              <h3>Füge eine Antwort hinzu</h3>
+
+           
+              <form (ngSubmit)="addAnswer()">
+                <textarea rows="4" name="answer" id="answer-input" class="add-answer" required [(ngModel)]="answer"></textarea>
+                <div id="answer-sent">Antwort abgesendet!</div>
+                <div id="answer-not-sent">Fehler beim Absenden der Antwort!</div>
+                <button class="btn btn-game"><fa name="arrow-circle-right"></fa>Antwort abschicken</button>
+            </form>
+
+
+
+            <ul class="list-group answer-list">
+              <div class="aanswer {{answer.master}}" *ngFor="let answer of allAnswers | async">
+                <div class="row">
+                  <div class="col-12 col-md-1">
+                      <div class="answer-letter"><li></li></div>
+                  </div>
+                  <div class="col-12 col-md-11">
+                      <div class="gamer-answer">{{answer.answer}}</div>
+                      <div class="gamer-username">{{answer.username}} 
+                          <button id="{{answer.key}}" name="deleteOneAnswer" class="btn btn-delete-one-answer" #aanswer (click)="deleteOneAnswer(aanswer.id)"><fa name="close"></fa></button>
+                      </div>
+
+              
+                      
+                  </div>
+                </div>
+              </div>
+        </ul>
+    
+        <button class="btn btn-delete" (click)="openDiv()"><fa name="close"></fa>Antworten löschen</button>
+            </div>
+      </div>
+   </div>
+</div>
+
+
+<div id="reallyDelete">
+    <button class="btn btn-close" (click)="closeDiv()"><fa name="close"></fa></button>
+    <div class="text">
+  <h4>Möchtest du wirklich alle Antworten löschen?</h4>
+  <p>Wenn du das tust, wird eine neue Runde gestartet und 
+    jemand anderer wird Master.</p>
+
+
+  <p>  Wenn ja, klicke hier</p>
+
+  <button class="btn btn-game" (click)="deleteAllAnswers()"><fa name="close"></fa>Alle Antworten löschen</button>
+</div>
+</div>
+

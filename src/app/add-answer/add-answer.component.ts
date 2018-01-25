@@ -21,6 +21,7 @@ export class AddAnswerComponent implements OnInit {
   answer='';
   uid ='';
   username='';
+  randomNumber;
 
   answersRef: AngularFireList<any>;
   allAnswers: Observable<any[]>;
@@ -28,7 +29,7 @@ export class AddAnswerComponent implements OnInit {
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase, public authService: AuthService, private router: Router) { 
 
-      this.answersRef = db.list('/answers');
+      this.answersRef = db.list('aktuelles-spiel/answers');
       this.allAnswers = this.answersRef.snapshotChanges().map(changes => {
           return changes.map(c => ({ key: c.payload.key, ...c.payload.val() 
       }));
@@ -45,14 +46,16 @@ export class AddAnswerComponent implements OnInit {
       this.uid = this.afAuth.auth.currentUser.uid;
       this.username = this.afAuth.auth.currentUser.displayName;
       this.answer = this.answer;
+      this.randomNumber = Math.floor(Math.random()*1000);
 
-      var answersRef = firebase.database().ref("answers");
+      var answersRef = firebase.database().ref("aktuelles-spiel/answers");
 
 
       answersRef.push().set({
           uid: this.uid,
           username: this.username,
-          answer: this.answer
+          answer: this.answer,
+          number: this.randomNumber
         }).then(() => {
           this.answer = ''; 
           document.getElementById("answer-not-sent").style.display="none";
@@ -70,24 +73,5 @@ export class AddAnswerComponent implements OnInit {
     }
   }
 
-  openDiv() {
-    document.getElementById("reallyDelete").style.display="initial";
-    window.scrollTo(0, 0);
-  }
-  closeDiv() {
-    document.getElementById("reallyDelete").style.display="none";
-  }
-
-  deleteAllAnswers() :void {
-    var answersRef = firebase.database().ref("answers");
-    answersRef.set({     
-      });
-      document.getElementById("reallyDelete").style.display="none";
-  }
-
-  signOut(): void {
-    this.afAuth.auth.signOut();
-    this.router.navigate(['/'])
-  }
 
 }
