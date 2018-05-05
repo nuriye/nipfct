@@ -54,24 +54,28 @@
 
       <h2>Alle Spiele</h2>
 
-      <div class="game-div row"  *ngFor="let game of allGames | async">
+      <div class="game-div row" *ngFor="let game of allGames | async">
         <div class="col-10">
           <div class="row game-div-details">
               <span class="game-div-date">{{game.date}}</span>
-              <span class="game-div-clock">{{game.time}}</span>
+              <span class="game-div-clock">{{game.time}}</span><br>
           </div>
-          <div class="row game-div-members">
-            <div *ngFor="let player of hack(game.players)">
-              <span>{{player}}</span>
+          <div class="row game-div-members"> 
+              <button id="{{game.key}}" name="deleteOneGame" class="btn btn-delete-one-game" (click)="deleteOneGame(game.key)"><fa name="close"></fa>Löschen</button>
+            <b style="padding-right: 5px;">Spieler:</b>
+            <div *ngFor="let player of game.players | derpPipe">
+                <span style="padding-right: 3px;">{{player.username}},</span>
+            </div>
           </div>
-        </div>
         </div>
 
-        <div class="col-2 game-div-status status-{{game.status}}">
- 
+        <div class="col-2 game-div-status status-{{game.status}}" id="{{game.key}}" name="changeGameStatus"  (click)="changeGameStatus(game.key, game.status)">
+            Status ändern
         </div>
 
       </div> 
+
+
 
 
 

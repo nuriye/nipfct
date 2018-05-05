@@ -43,12 +43,12 @@ export class AddAnswerMasterComponent implements OnInit {
 
      //var numberPlayers = db.ref('aktuelles-spiel/answers');
 
-     var numberPlayers = firebase.database().ref("aktuelles-spiel").child("numberofplayers");
+     /*var numberPlayers = firebase.database().ref("aktuelles-spiel").child("numberofplayers");
 
      numberPlayers.on("value", function(snapshot) {
       var thenumber = snapshot.val();
       document.getElementById("number").innerHTML = thenumber;
-    });
+    });*/
 
 /*
     var userDataRef = firebase.database().ref("UserData").orderByKey();
@@ -120,7 +120,6 @@ userDataRef.once("value")
 
   deleteOneAnswer(e) {
     firebase.database().ref("aktuelles-spiel/answers/" + e).remove();
-
   }
 
   saveNumberOfPlayers() {
@@ -131,5 +130,112 @@ userDataRef.once("value")
   }
 
 
+ 
+  shuffleAnswers() :void {
+    var answersRef = firebase.database().ref("aktuelles-spiel/answers");
+    var shuffledAnswersRef = firebase.database().ref("aktuelles-spiel/shuffled");
+    var allAnswers = [];
+
+          /* Erst die Shuffled Answers leeren */
+          shuffledAnswersRef.set({     
+          });
+    
+
+    answersRef.once('value', function(snapshot) {
+
+
+      /* Alle answers in Array und shufflen*/
+      var allAnswersShuffled = snapshotToArray(snapshot);
+
+
+      /* Alle geshuffelten Answers in vorübergehende Firebase speichern */
+          allAnswersShuffled.forEach(function(oneAnswer) {
+            var randomNumber = Math.floor(Math.random()*1000);
+            //console.log(oneAnswer.answer);
+            shuffledAnswersRef.push().set({
+              uid: oneAnswer.uid,
+              username: oneAnswer.username,
+              answer: oneAnswer.answer,
+              master: oneAnswer.master,
+              number: randomNumber
+            });
+
+            /* wenn gespeichert, dann genau die answer auf firebase löschen */
+            var keyy = oneAnswer.key;
+
+            /* Alle Ungeshuffelten answers von answers firebase löschen */
+            answersRef.child(keyy).set({     
+            });
+
+         
+
+       });
+
+        /* und nund alle answers wieder in answers firebase speichern */
+        allAnswersShuffled.forEach(function(oneAnswer) {
+          var randomNumber = Math.floor(Math.random()*1000);
+         // console.log(oneAnswer.answer);
+          answersRef.push().set({
+            uid: oneAnswer.uid,
+            username: oneAnswer.username,
+            answer: oneAnswer.answer,
+            master: oneAnswer.master,
+            number: randomNumber
+          });
+      });
+
+      shuffledAnswersRef.set({     
+      });
+
+
+          function snapshotToArray(snapshot) {
+            var allAnswers = [];
+
+            snapshot.forEach(function(childSnapshot) {
+                var item = childSnapshot.val();
+                item.key = childSnapshot.key;
+
+                allAnswers.push(item);
+            });
+
+            return shuffle(allAnswers);
+          }
+
+
+          function shuffle(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+          }
+
+
+
+  /*answersRef.once("value").then(function(questionsSnapshot) {
+      return questionsSnapshot.forEach(function(questionSnapshot) {*/
+       // JSON.parse( JSON.stringify(questionSnapshot ) );
+       /*answersRef.push().set({
+          uid: questionSnapshot.child('uid').val(),
+          username: questionSnapshot.child('username').val(),
+          answer: questionSnapshot.child('answer').val(),
+          master: questionSnapshot.child('master').val(),
+          number: 4
+        })*/
+        //return console.log(questionSnapshot.val());
+        //return console.log(questionSnapshot.child('username').val());
+     /* });
+    });*/
+
+ 
+  });
+
 }
+
+
+
+
+  }
+
+
 

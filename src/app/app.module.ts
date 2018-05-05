@@ -26,6 +26,8 @@ import { NeuesSpielComponent } from './neues-spiel/neues-spiel.component';
 import { SeatingOrderComponent } from './seating-order/seating-order.component';
 import { AddAnswerComponent } from './add-answer/add-answer.component';
 import { AddAnswerMasterComponent } from './add-answer-master/add-answer-master.component';
+import { DerpPipePipe } from './derp-pipe.pipe';
+import { OrderPipePipe } from './order-pipe.pipe';
 
 
 
@@ -59,7 +61,9 @@ const appRoutes: Routes = [
     NeuesSpielComponent,
     SeatingOrderComponent,
     AddAnswerComponent,
-    AddAnswerMasterComponent
+    AddAnswerMasterComponent,
+    DerpPipePipe,
+    OrderPipePipe
   ],
   imports: [
     BrowserModule,

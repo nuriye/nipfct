@@ -7,7 +7,7 @@
 <h2>Hallo, Master!</h2>
 <h4>Wie viele spielen mit?</h4>
 
-<div class="game-settings">
+<!--<div class="game-settings">
 <form (ngSubmit)="saveNumberOfPlayers()">
 <select class="agamer-number" name="numberOfPlayers" [(ngModel)]="numberOfPlayers">
    
@@ -25,21 +25,27 @@
 </form>
 </div>
 
+
+
+
 <div class="number-of-players">
 Aktuelle Anzahl der MitspielerInnen: <b id="number"></b>
-</div>
+</div>-->
 
 
               <h3>Füge eine Antwort hinzu</h3>
 
-           
+
               <form (ngSubmit)="addAnswer()">
                 <textarea rows="4" name="answer" id="answer-input" class="add-answer" required [(ngModel)]="answer"></textarea>
                 <div id="answer-sent">Antwort abgesendet!</div>
                 <div id="answer-not-sent">Fehler beim Absenden der Antwort!</div>
                 <button class="btn btn-game"><fa name="arrow-circle-right"></fa>Antwort abschicken</button>
-            </form>
+              </form>
 
+
+      <button class="btn btn-game shuffle" (click)="shuffleAnswers()" ><fa name="random"></fa>Shuffle</button>
+    
 
 
             <ul class="list-group answer-list">
