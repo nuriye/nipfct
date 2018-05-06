@@ -18,13 +18,15 @@
       </div>
     <ul class="list-group answer-list">
 
-      
-      <div class="aanswer" *ngFor="let myAnswers of allMyAnswers | async">
+
+      <div class="aanswer" *ngFor="let myAnswers of allMyAnswers | async | reverse">
           <div class="row">
             <div class="col-12">
                 <div class="gamer-answer">{{myAnswers.answer}}</div>
-                <div class="gamer-username">{{myAnswers.username}} 
-                    <button id="{{myAnswers.key}}" name="deleteOneAnswer" class="btn btn-delete-one-answer" #aanswer (click)="deleteOneAnswer(aanswer.id)"><fa name="close"></fa></button>
+            </div>
+            <div class="col-12">
+                <div class="gamer-username">{{myAnswers.date}} - {{myAnswers.time}}
+                    <button id="{{myAnswers.key}}" name="deleteOneAnswer" class="btn btn-delete-one-answer" #aanswer (click)="deleteOneAnswer(aanswer.id)"><span class="fa fa-close"></span></button>
                 </div>
             </div>
           </div>

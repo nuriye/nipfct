@@ -14,7 +14,7 @@
     </div>
 
     <div class="col-2 add-game-plus">
-      <fa name="plus-circle"></fa>
+      <span class="fa fa-plus-circle"></span>
     </div>
 
   </div> 
@@ -28,7 +28,7 @@
   </div>
   
   <div class="col-2 add-game-plus">
-    <fa name="plus-circle"></fa>
+    <span class="fa fa-plus-circle"></span>
   </div>
   
   </div> 
@@ -41,7 +41,7 @@
     </div>
     
     <div class="col-2 add-game-plus">
-      <fa name="plus-circle"></fa>
+      <span class="fa fa-plus-circle"></span>
     </div>
     
     </div> 
@@ -61,7 +61,7 @@
               <span class="game-div-clock">{{game.time}}</span><br>
           </div>
           <div class="row game-div-members"> 
-              <button id="{{game.key}}" name="deleteOneGame" class="btn btn-delete-one-game" (click)="deleteOneGame(game.key)"><fa name="close"></fa>Löschen</button>
+              <button id="{{game.key}}" name="deleteOneGame" class="btn btn-delete-one-game" (click)="deleteOneGame(game.key)"><span class="fa fa-close"></span>Löschen</button>
             <b style="padding-right: 5px;">Spieler:</b>
             <div *ngFor="let player of game.players | derpPipe">
                 <span style="padding-right: 3px;">{{player.username}},</span>

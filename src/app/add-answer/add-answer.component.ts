@@ -92,7 +92,8 @@ export class AddAnswerComponent implements OnInit {
           username: this.username,
           answer: this.answer,
           number: this.randomNumber,
-          master: 'nein'
+          master: 'nein',
+          date: firebase.database.ServerValue.TIMESTAMP
         }).then(() => {
           this.answer = ''; 
           document.getElementById("answer-not-sent").style.display="none";
@@ -106,7 +107,7 @@ export class AddAnswerComponent implements OnInit {
           answer: this.answer,
           master: 'nein',
           date: dd + "." + mm + "." + yyyy,
-          time: hh + ":" + min
+          time: hh + ":" + min,
         })
   
 

@@ -13,7 +13,7 @@ import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+//import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { HomeComponent } from './home/home.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -28,6 +28,7 @@ import { AddAnswerComponent } from './add-answer/add-answer.component';
 import { AddAnswerMasterComponent } from './add-answer-master/add-answer-master.component';
 import { DerpPipePipe } from './derp-pipe.pipe';
 import { OrderPipePipe } from './order-pipe.pipe';
+import { ReversePipe } from './reverse.pipe';
 
 
 
@@ -63,14 +64,15 @@ const appRoutes: Routes = [
     AddAnswerComponent,
     AddAnswerMasterComponent,
     DerpPipePipe,
-    OrderPipePipe
+    OrderPipePipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFontAwesomeModule,
+    //AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
   ],

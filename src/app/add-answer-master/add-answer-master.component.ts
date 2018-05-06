@@ -153,8 +153,8 @@ userDataRef.once("value")
     document.getElementById("reallyDelete").style.display="none";
   }
 
-  deleteAllAnswers() :void {
-    var answersRef = firebase.database().ref("answers");
+  deleteAllAnswers() {
+    var answersRef = firebase.database().ref("aktuelles-spiel/answers");
     answersRef.set({     
       });
       document.getElementById("reallyDelete").style.display="none";
@@ -186,12 +186,15 @@ userDataRef.once("value")
     answersRef.once('value', function(snapshot) {
 
 
-      /* Alle answers in Array und shufflen*/
+      // Alle answers in Array und shufflen
       var allAnswersShuffled = snapshotToArray(snapshot);
 
+      // Nach dem speichern in temporär Array alle Antworten löschen.
+      answersRef.set({     
+      });
 
       /* Alle geshuffelten Answers in vorübergehende Firebase speichern */
-          allAnswersShuffled.forEach(function(oneAnswer) {
+          /*allAnswersShuffled.forEach(function(oneAnswer) {
             var randomNumber = Math.floor(Math.random()*1000);
             //console.log(oneAnswer.answer);
             shuffledAnswersRef.push().set({
@@ -202,18 +205,16 @@ userDataRef.once("value")
               number: randomNumber
             });
 
-            /* wenn gespeichert, dann genau die answer auf firebase löschen */
+            // wenn gespeichert, dann genau die answer auf firebase löschen 
             var keyy = oneAnswer.key;
 
-            /* Alle Ungeshuffelten answers von answers firebase löschen */
+            // Alle Ungeshuffelten answers von answers firebase löschen 
             answersRef.child(keyy).set({     
             });
 
-         
+       });*/
 
-       });
-
-        /* und nund alle answers wieder in answers firebase speichern */
+        // und nun alle answers wieder in answers firebase speichern 
         allAnswersShuffled.forEach(function(oneAnswer) {
           var randomNumber = Math.floor(Math.random()*1000);
          // console.log(oneAnswer.answer);
@@ -226,8 +227,8 @@ userDataRef.once("value")
           });
       });
 
-      shuffledAnswersRef.set({     
-      });
+      /*shuffledAnswersRef.set({     
+      });*/
 
 
           function snapshotToArray(snapshot) {

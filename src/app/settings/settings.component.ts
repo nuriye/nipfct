@@ -24,6 +24,7 @@ export class SettingsComponent implements OnInit {
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase, public authService: AuthService, private router: Router) { 
 
+
      /* this.afAuth.auth.onAuthStateChanged(auth => {
         if (auth) {
           console.log(this.uid);
@@ -42,6 +43,9 @@ export class SettingsComponent implements OnInit {
       this.allMyAnswers = this.answersRef.snapshotChanges().map(changes => {
           return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
      });
+     
+
+
   }
 
   ngOnInit() {}
