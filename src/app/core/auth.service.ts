@@ -103,7 +103,8 @@ get getUserId(){
           displayName : username
       });
       this.authState = user
-      this.db.object(`/users/${this.currentUser.uid}`).update({"username": username})
+      this.db.object(`/users/${this.afAuth.auth.currentUser.uid}`).update({"username": username})
+      //this.db.object(`/users/${this.currentUser.uid}`).update({"username": username})
       this.isLoggedIn()  
       })
       .catch(error => {

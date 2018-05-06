@@ -66,13 +66,10 @@ userDataRef.once("value")
  });
 */
 
-    
-     
+    }
 
 
-    }
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
   addAnswer() :void {
 
@@ -83,6 +80,7 @@ userDataRef.once("value")
       this.randomNumber = Math.floor(Math.random()*1000);
 
       var answersRef = firebase.database().ref("aktuelles-spiel/answers");
+      var usersRef = firebase.database().ref("users");
 
 
       answersRef.push().set({
@@ -98,7 +96,13 @@ userDataRef.once("value")
         }).catch(error => {
           document.getElementById("answer-not-sent").style.display="block";
           console.log(error);
-        });   
+        });  
+        
+        usersRef.child(this.uid).child('answers').push().set({
+          username: this.username,
+          answer: this.answer,
+          master: "master",
+        })
         
     }
   }

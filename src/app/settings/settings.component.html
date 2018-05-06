@@ -8,4 +8,25 @@
       <h2>Settings</h2>
       </div>
     </div>
+
+    <div class="row">
+        <div class="col-xs-12" id="main">
+         
+        <h2>Meine Antworten</h2>
+
+        </div>
+      </div>
+
+      <div class="aanswer {{answer.master}}" *ngFor="let myAnswers of allMyAnswers | async">
+          <div class="row">
+            <div class="col-12 col-md-11">
+                <div class="gamer-answer">{{myAnswers.answer}}</div>
+                <div class="gamer-username">{{myAnswers.username}} 
+                    <button id="{{myAnswers.key}}" name="deleteOneAnswer" class="btn btn-delete-one-answer" #aanswer (click)="deleteOneAnswer(aanswer.id)"><fa name="close"></fa></button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
   </div>
