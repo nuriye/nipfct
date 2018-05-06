@@ -73,6 +73,42 @@ userDataRef.once("value")
 
   addAnswer() :void {
 
+    var today = new Date();
+    var d = today.getDate();
+    var mo = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var min;
+    var hh;
+    var dd;
+    var mm;
+
+    if(m == 0 || m < 10 ) { //statt 1 01 und statt 0 00 usw
+      min = "0" + m;
+    } else {
+      min = m;
+    }
+
+    if(h == 0 || h < 10 ) { //statt 1 01 und statt 0 00 usw
+      hh = "0" + h;
+    } else {
+      hh = h;
+    }
+
+    if(mo == 0 || mo < 10 ) { //statt 1 01 und statt 0 00 usw
+      mm = "0" + mo;
+    } else {
+      mm = mo;
+    }
+
+    if(d == 0 || d < 10 ) { //statt 1 01 und statt 0 00 usw
+      dd = "0" + d;
+    } else {
+      dd = d;
+    }
+
+
     if(this.answer) {
       this.uid = this.afAuth.auth.currentUser.uid;
       this.username = this.afAuth.auth.currentUser.displayName;
@@ -102,6 +138,8 @@ userDataRef.once("value")
           username: this.username,
           answer: this.answer,
           master: "master",
+          date: dd + "." + mm + "." + yyyy,
+          time: hh + ":" + min
         })
         
     }

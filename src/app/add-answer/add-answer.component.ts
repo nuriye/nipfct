@@ -42,6 +42,41 @@ export class AddAnswerComponent implements OnInit {
 
   addAnswer() :void {
 
+    var today = new Date();
+    var d = today.getDate();
+    var mo = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var min;
+    var hh;
+    var dd;
+    var mm;
+
+    if(m == 0 || m < 10 ) { //statt 1 01 und statt 0 00 usw
+      min = "0" + m;
+    } else {
+      min = m;
+    }
+
+    if(h == 0 || h < 10 ) { //statt 1 01 und statt 0 00 usw
+      hh = "0" + h;
+    } else {
+      hh = h;
+    }
+
+    if(mo == 0 || mo < 10 ) { //statt 1 01 und statt 0 00 usw
+      mm = "0" + mo;
+    } else {
+      mm = mo;
+    }
+
+    if(d == 0 || d < 10 ) { //statt 1 01 und statt 0 00 usw
+      dd = "0" + d;
+    } else {
+      dd = d;
+    }
+
     if(this.answer) {
       this.uid = this.afAuth.auth.currentUser.uid;
       this.username = this.afAuth.auth.currentUser.displayName;
@@ -49,13 +84,15 @@ export class AddAnswerComponent implements OnInit {
       this.randomNumber = Math.floor(Math.random()*1000);
 
       var answersRef = firebase.database().ref("aktuelles-spiel/answers");
+      var usersRef = firebase.database().ref("users");
 
 
       answersRef.push().set({
           uid: this.uid,
           username: this.username,
           answer: this.answer,
-          number: this.randomNumber
+          number: this.randomNumber,
+          master: 'nein'
         }).then(() => {
           this.answer = ''; 
           document.getElementById("answer-not-sent").style.display="none";
@@ -64,7 +101,13 @@ export class AddAnswerComponent implements OnInit {
           document.getElementById("answer-not-sent").style.display="block";
           console.log(error);
         });
-       // document.getElementById("answer-input").innerHTML="hello";
+        usersRef.child(this.uid).child('answers').push().set({
+          username: this.username,
+          answer: this.answer,
+          master: 'nein',
+          date: dd + "." + mm + "." + yyyy,
+          time: hh + ":" + min
+        })
   
 
         

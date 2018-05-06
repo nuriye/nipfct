@@ -16,10 +16,12 @@
 
         </div>
       </div>
+    <ul class="list-group answer-list">
 
-      <div class="aanswer {{answer.master}}" *ngFor="let myAnswers of allMyAnswers | async">
+      
+      <div class="aanswer" *ngFor="let myAnswers of allMyAnswers | async">
           <div class="row">
-            <div class="col-12 col-md-11">
+            <div class="col-12">
                 <div class="gamer-answer">{{myAnswers.answer}}</div>
                 <div class="gamer-username">{{myAnswers.username}} 
                     <button id="{{myAnswers.key}}" name="deleteOneAnswer" class="btn btn-delete-one-answer" #aanswer (click)="deleteOneAnswer(aanswer.id)"><fa name="close"></fa></button>
@@ -27,6 +29,7 @@
             </div>
           </div>
         </div>
+      </ul>
 
 
   </div>

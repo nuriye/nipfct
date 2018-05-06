@@ -14,20 +14,42 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SettingsComponent implements OnInit {
 
+  //uid = this.afAuth.auth.currentUser.uid;
 
+  uid = this.afAuth.auth.currentUser.uid;
   answersRef: AngularFireList<any>;
-  allAnswers: Observable<any[]>;
+  allMyAnswers: Observable<any[]>;
+
 
   constructor(private afAuth: AngularFireAuth,
     private db: AngularFireDatabase, public authService: AuthService, private router: Router) { 
 
-      this.answersRef = db.list('aktuelles-spiel/answers');
-      this.allAnswers = this.answersRef.snapshotChanges().map(changes => {
+     /* this.afAuth.auth.onAuthStateChanged(auth => {
+        if (auth) {
+          console.log(this.uid);
+          this.uid = this.afAuth.auth.currentUser.uid
+        } else {
+          this.router.navigate(['/']);
+          console.log('User not logged in');
+        }
+      });*/
+
+      //this.uid = this.afAuth.auth.currentUser.uid;
+      //console.log(this.uid);
+      var path = 'users/' + this.uid + '/answers';
+
+      this.answersRef = db.list(path);
+      this.allMyAnswers = this.answersRef.snapshotChanges().map(changes => {
           return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
      });
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+
+  deleteOneAnswer(e) {
+    var uid = this.uid;
+    firebase.database().ref("users/" + uid + '/answers/' + e).remove();
   }
 
 }
